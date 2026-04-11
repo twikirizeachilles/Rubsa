@@ -51,7 +51,7 @@ include 'includes/navbar.php';
           <div class="contact-card-icon">✉️</div>
           <div class="contact-card-text">
             <strong>Email</strong>
-            <span><a href="mailto:sales@rubasafreightservices.com" style="color:var(--royal);font-weight:500;">sales@rubasafreightservices.com</a></span>
+            <span><a href="mailto:Sales@rubasafreight.com" style="color:var(--royal);font-weight:500;">sales@rubasafreight.com</a></span>
           </div>
         </div>
 
@@ -139,11 +139,9 @@ include 'includes/navbar.php';
 
         <!-- Map -->
         <div class="map-placeholder" style="height:300px;border-radius:16px;overflow:hidden;margin-top:24px;position:relative;">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7457890258743!2d32.5180856!3d0.2557695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbb71b77e8a83%3A0xda9be2d3d3d2b68d!2sSt.%20Mary's%20College%20Kitende!5e0!3m2!1sen!2sug!4v1680000000000!5m2!1sen!2sug"
-            width="100%" height="300" style="border:0;border-radius:16px;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+          
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7945688187237!2d32.529723673577664!3d0.19770016419847466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177d990013c7ff81%3A0xfa615edb44fdfaab!2sSt.Mary&#39;s%20Stadium%20Kitende!5e0!3m2!1sen!2sug!4v1775911788682!5m2!1sen!2sug" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          
         </div>
       </div>
 
@@ -168,7 +166,7 @@ include 'includes/navbar.php';
       <div>
         <div style="font-size:2rem;margin-bottom:10px;">✉️</div>
         <h4 style="color:white;margin-bottom:6px;">Email Sales</h4>
-        <a href="mailto:sales@rubasafreightservices.com" style="color:var(--cornflower);font-size:0.95rem;font-weight:500;">sales@rubasafreightservices.com</a>
+        <a href="mailto:sales@rubasafreight.com" style="color:var(--cornflower);font-size:0.95rem;font-weight:500;">sales@rubasafreight.com</a>
       </div>
     </div>
   </div>

@@ -61,7 +61,7 @@
         </div>
         <div class="footer-contact-item">
           <div class="contact-icon">✉️</div>
-          <span><a href="mailto:sales@rubasafreightservices.com" style="color:rgba(255,255,255,0.55);">sales@rubasafreightservices.com</a></span>
+          <span><a href="mailto:sales@rubasafreight.com" style="color:rgba(255,255,255,0.55);">sales@rubasafreight.com</a></span>
         </div>
         <div class="footer-contact-item">
           <div class="contact-icon">📍</div>

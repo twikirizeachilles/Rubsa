@@ -124,10 +124,11 @@ a { text-decoration: none; color: inherit; }
 }
 .nav-logo { display: flex; align-items: center; gap: 12px; }
 .nav-logo-icon {
-  width: 44px; height: 44px; background: linear-gradient(135deg, var(--royal), var(--cornflower));
+  width: 24px; height: 24px; background: linear-gradient(135deg, var(--royal), var(--cornflower));
   border-radius: 10px; display: flex; align-items: center; justify-content: center;
   font-size: 1.3rem;
 }
+
 .nav-logo-text { font-family: 'Syne', sans-serif; }
 .nav-logo-text span:first-child {
   display: block; font-size: 1.1rem; font-weight: 800; color: white; line-height: 1;
@@ -680,3 +681,4 @@ footer {
 }
 .toast.show { transform: translateY(0); opacity: 1; }
 .toast.success { border-left-color: #25d366; }
+

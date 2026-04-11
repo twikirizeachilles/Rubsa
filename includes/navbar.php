@@ -6,6 +6,7 @@ function isActive($page) {
     return $current_page === $page ? 'active' : '';
 }
 ?>
+
 <!-- MOBILE MENU -->
 <nav class="mobile-menu" id="mobileMenu">
   <a href="index.php" class="<?= isActive('index.php') ?>">Home</a>
@@ -22,9 +23,12 @@ function isActive($page) {
 <!-- MAIN NAVBAR -->
 <nav id="navbar">
   <div class="nav-inner">
+    
     <!-- Logo -->
     <a href="index.php" class="nav-logo">
-      <div class="nav-logo-icon">🚛</div>
+      <div class="nav-logo-icon">
+        <img src="assets/images/ gemini logo.png" alt="Rubasa Logo">
+      </div>
       <div class="nav-logo-text">
         <span>RUBASA</span>
         <span>Freight Services Ltd</span>
@@ -67,3 +71,4 @@ function isActive($page) {
     </div>
   </div>
 </nav>
+
