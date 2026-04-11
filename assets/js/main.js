@@ -139,3 +139,5 @@ const countObserver = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.5 });
 document.querySelectorAll('.hero-stats, .about-visual').forEach(el => countObserver.observe(el));
+
+

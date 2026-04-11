@@ -5,7 +5,9 @@
       <!-- Brand -->
       <div class="footer-brand">
         <a href="index.php" class="nav-logo" style="display:inline-flex;margin-bottom:4px;">
-          <div class="nav-logo-icon">🚛</div>
+          <div class="nav-logo-icon" style="width: 35px; height: 35px;">
+            <img src="assets/images/gemini-logo.png" alt="Rubasa Logo" style="width: 30px; height: 30px; object-fit: contain;">
+          </div>
           <div class="nav-logo-text">
             <span>RUBASA</span>
             <span>Freight Services Ltd</span>

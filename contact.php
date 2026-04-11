@@ -94,7 +94,7 @@ include 'includes/navbar.php';
         </div>
       </div>
 
-      <!-- RIGHT: Form + Map -->
+      <!-- RIGHT: Form + Map --> 
       <div class="fade-up">
         <div class="contact-form-card">
           <h3 style="margin-bottom:8px;">Send Us a Message</h3>
@@ -136,6 +136,7 @@ include 'includes/navbar.php';
             </button>
           </form>
         </div>
+
 
         <!-- Map -->
         <div class="map-placeholder" style="height:300px;border-radius:16px;overflow:hidden;margin-top:24px;position:relative;">

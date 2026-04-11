@@ -25,15 +25,15 @@ function isActive($page) {
   <div class="nav-inner">
     
     <!-- Logo -->
-    <a href="index.php" class="nav-logo">
-      <div class="nav-logo-icon">
-        <img src="assets/images/ gemini logo.png" alt="Rubasa Logo">
-      </div>
-      <div class="nav-logo-text">
-        <span>RUBASA</span>
-        <span>Freight Services Ltd</span>
-      </div>
-    </a>
+      <a href="index.php" class="nav-logo">
+          <div class="nav-logo-icon" style="width: 35px; height: 35px;">
+            <img src="assets/images/gemini-logo.png" alt="Rubasa Logo" style="width: 30px; height: 30px; object-fit: contain;">
+          </div>
+           <div class="nav-logo-text">
+              <span>RUBASA</span>
+              <span>Freight Services Ltd</span>
+          </div>
+      </a>
 
     <!-- Social Links -->
     <div class="nav-social">
