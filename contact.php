@@ -1,6 +1,99 @@
 <?php
 $page_title = "Contact Us";
 $page_desc  = "Get in touch with Rubasa Freight Services Ltd. Call, email, WhatsApp or visit us in Kitende, Uganda.";
+
+// Email processing
+$email_sent = false;
+$email_error = false;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get form data
+    $name = isset($_POST['name']) ? trim($_POST['name']) : '';
+    $phone = isset($_POST['phone']) ? trim($_POST['phone']) : '';
+    $email = isset($_POST['email']) ? trim($_POST['email']) : '';
+    $subject_option = isset($_POST['subject']) ? trim($_POST['subject']) : '';
+    $message = isset($_POST['message']) ? trim($_POST['message']) : '';
+    
+    // Warehouse fields
+    $warehouse_location = isset($_POST['warehouse_location']) ? trim($_POST['warehouse_location']) : '';
+    $custom_location = isset($_POST['custom_location']) ? trim($_POST['custom_location']) : '';
+    $warehouse_size = isset($_POST['warehouse_size']) ? trim($_POST['warehouse_size']) : '';
+    $custom_size = isset($_POST['custom_size']) ? trim($_POST['custom_size']) : '';
+    $warehouse_duration = isset($_POST['warehouse_duration']) ? trim($_POST['warehouse_duration']) : '';
+    $storage_type = isset($_POST['storage_type']) ? trim($_POST['storage_type']) : '';
+    
+    // Freight fields
+    $pickup_location = isset($_POST['pickup_location']) ? trim($_POST['pickup_location']) : '';
+    $delivery_location = isset($_POST['delivery_location']) ? trim($_POST['delivery_location']) : '';
+    $cargo_type = isset($_POST['cargo_type']) ? trim($_POST['cargo_type']) : '';
+    $weight = isset($_POST['weight']) ? trim($_POST['weight']) : '';
+    
+    // Validate required fields
+    if (empty($name) || empty($phone) || empty($subject_option) || empty($message)) {
+        $email_error = "Please fill in all required fields.";
+    } else {
+        // Prepare email content
+        $to = "Sales@rubasafreight.com";
+        $subject = "Contact Form: " . ucfirst(str_replace('_', ' ', $subject_option));
+        
+        // Build email body
+        $email_body = "New message from your website contact form\n\n";
+        $email_body .= "========================================\n";
+        $email_body .= "CONTACT INFORMATION\n";
+        $email_body .= "========================================\n";
+        $email_body .= "Name: $name\n";
+        $email_body .= "Phone: $phone\n";
+        $email_body .= "Email: " . ($email ? $email : 'Not provided') . "\n";
+        $email_body .= "Subject: " . ucfirst(str_replace('_', ' ', $subject_option)) . "\n\n";
+        
+        // Add specific details based on subject
+        if ($subject_option == 'warehouse') {
+            $final_location = ($custom_location && $warehouse_location == 'other') ? $custom_location : $warehouse_location;
+            $final_size = ($custom_size && $warehouse_size == 'custom') ? $custom_size : $warehouse_size;
+            
+            $email_body .= "========================================\n";
+            $email_body .= "WAREHOUSE INQUIRY DETAILS\n";
+            $email_body .= "========================================\n";
+            $email_body .= "Preferred Location: " . ucfirst(str_replace('_', ' ', $final_location)) . "\n";
+            $email_body .= "Size Needed: " . ucfirst(str_replace('_', ' ', $final_size)) . "\n";
+            $email_body .= "Duration: " . ucfirst(str_replace('_', ' ', $warehouse_duration)) . "\n";
+            $email_body .= "Storage Type: " . ucfirst(str_replace('_', ' ', $storage_type)) . "\n\n";
+        } elseif ($subject_option == 'freight') {
+            $email_body .= "========================================\n";
+            $email_body .= "FREIGHT INQUIRY DETAILS\n";
+            $email_body .= "========================================\n";
+            $email_body .= "Pickup Location: $pickup_location\n";
+            $email_body .= "Delivery Location: $delivery_location\n";
+            $email_body .= "Cargo Type: " . ucfirst(str_replace('_', ' ', $cargo_type)) . "\n";
+            $email_body .= "Estimated Weight: $weight\n\n";
+        }
+        
+        // Add message
+        $email_body .= "========================================\n";
+        $email_body .= "MESSAGE\n";
+        $email_body .= "========================================\n";
+        $email_body .= "$message\n\n";
+        $email_body .= "========================================\n";
+        $email_body .= "Sent from: " . $_SERVER['HTTP_HOST'] . "\n";
+        $email_body .= "IP Address: " . $_SERVER['REMOTE_ADDR'] . "\n";
+        $email_body .= "Date: " . date('Y-m-d H:i:s') . "\n";
+        
+        // Email headers
+        $headers = "MIME-Version: 1.0\r\n";
+        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+        $headers .= "From: " . ($email ? $email : "noreply@{$_SERVER['HTTP_HOST']}") . "\r\n";
+        $headers .= "Reply-To: " . ($email ? $email : $phone) . "\r\n";
+        $headers .= "X-Mailer: PHP/" . phpversion();
+        
+        // Send email
+        if (mail($to, $subject, $email_body, $headers)) {
+            $email_sent = true;
+        } else {
+            $email_error = "Sorry, something went wrong. Please try again or call us directly.";
+        }
+    }
+}
+
 include 'includes/head.php';
 include 'includes/navbar.php';
 ?>
@@ -17,9 +110,8 @@ include 'includes/navbar.php';
     <p>Have questions or ready to ship? We're here to help you move goods efficiently across Uganda and beyond.</p>
   </div>
 </section>
-<!-- old contact section here -->
+
 <!-- CONTACT SECTION -->
- <!-- CONTACT SECTION -->
 <section class="section-pad" style="background:var(--off-white);" id="quote">
   <div class="container">
     <div class="contact-grid">
@@ -101,148 +193,159 @@ include 'includes/navbar.php';
           <h3 style="margin-bottom:8px;">Send Us a Message</h3>
           <p style="margin-bottom:28px;font-size:0.9rem;">Fill in the form below and our team will get back to you within a few hours.</p>
           
-          <form action="#" method="POST" id="contactForm" style="flex: 1; display: flex; flex-direction: column;">
-    <div class="form-group">
-        <label for="fullName">Full Name</label>
-        <input type="text" id="fullName" name="name" placeholder="Your full name" autocomplete="name" required>
-    </div>
-    
-    <div class="form-row">
-        <div class="form-group">
-            <label for="phoneNumber">Phone Number</label>
-            <input type="tel" id="phoneNumber" name="phone" placeholder="0700 000 000" autocomplete="tel" required>
-        </div>
-        <div class="form-group">
-            <label for="emailAddress">Email Address</label>
-            <input type="email" id="emailAddress" name="email" placeholder="you@email.com" autocomplete="email">
-        </div>
-    </div>
-    
-    <div class="form-group">
-        <label for="subjectSelect">Subject</label>
-        <select name="subject" id="subjectSelect" autocomplete="off">
-            <option value="">Select a subject…</option>
-            <option value="quote">Request a Quote</option>
-            <option value="freight">Freight Transport Inquiry</option>
-            <option value="warehouse">Warehousing Inquiry</option>
-            <option value="distribution">Distribution Inquiry</option>
-            <option value="partnership">Partnership / General</option>
-            <option value="other">Other</option>
-        </select>
-    </div>
-    
-    <!-- Dynamic Fields for Warehousing -->
-    <div id="warehouseFields" style="display: none;">
-        <div class="form-group">
-            <label for="warehouseLocation">Preferred Warehouse Location</label>
-            <select name="warehouse_location" id="warehouseLocation" autocomplete="off">
-                <option value="">Select location...</option>
-                <option value="kampala">Kampala Central</option>
-                <option value="nansana">Nansana</option>
-                <option value="kireka">Kireka</option>
-                <option value="mukono">Mukono</option>
-                <option value="entebbe">Entebbe</option>
-                <option value="jinja">Jinja</option>
-                <option value="other">Other (Please specify)</option>
-            </select>
-        </div>
-        
-        <div class="form-group" id="customLocationDiv" style="display: none;">
-            <label for="customLocation">Please specify location</label>
-            <input type="text" id="customLocation" name="custom_location" placeholder="Enter your preferred location" autocomplete="off">
-        </div>
-        
-        <div class="form-row">
-            <div class="form-group">
-                <label for="warehouseSize">Warehouse Size Needed</label>
-                <select name="warehouse_size" id="warehouseSize" autocomplete="off">
-                    <option value="">Select size...</option>
-                    <option value="small">Small (Up to 100 sqm)</option>
-                    <option value="medium">Medium (100 - 500 sqm)</option>
-                    <option value="large">Large (500 - 1000 sqm)</option>
-                    <option value="xl">Extra Large (1000+ sqm)</option>
-                    <option value="custom">Custom Size</option>
-                </select>
-            </div>
-            
-            <div class="form-group" id="customSizeDiv" style="display: none;">
-                <label for="customSize">Specify size (sqm)</label>
-                <input type="text" id="customSize" name="custom_size" placeholder="e.g., 750 sqm" autocomplete="off">
-            </div>
-        </div>
-        
-        <div class="form-row">
-            <div class="form-group">
-                <label for="warehouseDuration">Duration Needed</label>
-                <select name="warehouse_duration" id="warehouseDuration" autocomplete="off">
-                    <option value="">Select duration...</option>
-                    <option value="short">Short-term (1-3 months)</option>
-                    <option value="medium">Medium-term (3-6 months)</option>
-                    <option value="long">Long-term (6+ months)</option>
-                    <option value="flexible">Flexible / Not sure</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="storageType">Storage Type</label>
-                <select name="storage_type" id="storageType" autocomplete="off">
-                    <option value="">Select type...</option>
-                    <option value="dry">Dry Storage (General goods)</option>
-                    <option value="cold">Cold Storage (Perishables)</option>
-                    <option value="hazardous">Hazardous Materials</option>
-                    <option value="valuable">High-Value / Secure Storage</option>
-                    <option value="mixed">Mixed / Not sure</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Dynamic Fields for Freight Transport -->
-    <div id="freightFields" style="display: none;">
-        <div class="form-row">
-            <div class="form-group">
-                <label for="pickupLocation">Pickup Location</label>
-                <input type="text" id="pickupLocation" name="pickup_location" placeholder="Where to pick up from?" autocomplete="off">
-            </div>
-            <div class="form-group">
-                <label for="deliveryLocation">Delivery Location</label>
-                <input type="text" id="deliveryLocation" name="delivery_location" placeholder="Where to deliver?" autocomplete="off">
-            </div>
-        </div>
-        
-        <div class="form-row">
-            <div class="form-group">
-                <label for="cargoType">Cargo Type</label>
-                <select name="cargo_type" id="cargoType" autocomplete="off">
-                    <option value="">Select cargo type...</option>
-                    <option value="general">General Cargo</option>
-                    <option value="fragile">Fragile Items</option>
-                    <option value="perishable">Perishable Goods</option>
-                    <option value="hazardous">Hazardous Materials</option>
-                    <option value="vehicles">Vehicles / Machinery</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="estimatedWeight">Estimated Weight</label>
-                <input type="text" id="estimatedWeight" name="weight" placeholder="e.g., 500 kg, 2 tonnes" autocomplete="off">
-            </div>
-        </div>
-    </div>
-    
-    <!-- Message Field (shown for all) -->
-    <div class="form-group">
-        <label for="message">Message</label>
-        <textarea name="message" id="message" rows="4" placeholder="Tell us what you need to move, where, and when…" autocomplete="off" required></textarea>
-    </div>
-    
-    <button type="submit" class="btn btn-primary form-submit" style="margin-top: auto;">
-        Send Message
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-    </button>
-</form>
+          <!-- Show success or error messages -->
+          <?php if ($email_sent): ?>
+              <div style="background: #d4edda; color: #155724; padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #28a745;">
+                  <strong>✓ Message Sent Successfully!</strong><br>
+                  Thank you for contacting us. We'll get back to you within 24 hours.
+              </div>
+          <?php elseif ($email_error): ?>
+              <div style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #dc3545;">
+                  <strong>✗ Error Sending Message</strong><br>
+                  <?php echo $email_error; ?> Please call us directly at 0741 046 323.
+              </div>
+          <?php endif; ?>
           
-
+          <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" id="contactForm" style="flex: 1; display: flex; flex-direction: column;">
+              <div class="form-group">
+                  <label for="fullName">Full Name</label>
+                  <input type="text" id="fullName" name="name" placeholder="Your full name" autocomplete="name" required>
+              </div>
+              
+              <div class="form-row">
+                  <div class="form-group">
+                      <label for="phoneNumber">Phone Number</label>
+                      <input type="tel" id="phoneNumber" name="phone" placeholder="0700 000 000" autocomplete="tel" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="emailAddress">Email Address</label>
+                      <input type="email" id="emailAddress" name="email" placeholder="you@email.com" autocomplete="email">
+                  </div>
+              </div>
+              
+              <div class="form-group">
+                  <label for="subjectSelect">Subject</label>
+                  <select name="subject" id="subjectSelect" autocomplete="off">
+                      <option value="">Select a subject…</option>
+                      <option value="quote">Request a Quote</option>
+                      <option value="freight">Freight Transport Inquiry</option>
+                      <option value="warehouse">Warehousing Inquiry</option>
+                      <option value="distribution">Distribution Inquiry</option>
+                      <option value="partnership">Partnership / General</option>
+                      <option value="other">Other</option>
+                  </select>
+              </div>
+              
+              <!-- Dynamic Fields for Warehousing -->
+              <div id="warehouseFields" style="display: none;">
+                  <div class="form-group">
+                      <label for="warehouseLocation">Preferred Warehouse Location</label>
+                      <select name="warehouse_location" id="warehouseLocation" autocomplete="off">
+                          <option value="">Select location...</option>
+                          <option value="kampala">Kampala Central</option>
+                          <option value="nansana">Nansana</option>
+                          <option value="kireka">Kireka</option>
+                          <option value="mukono">Mukono</option>
+                          <option value="entebbe">Entebbe</option>
+                          <option value="jinja">Jinja</option>
+                          <option value="other">Other (Please specify)</option>
+                      </select>
+                  </div>
+                  
+                  <div class="form-group" id="customLocationDiv" style="display: none;">
+                      <label for="customLocation">Please specify location</label>
+                      <input type="text" id="customLocation" name="custom_location" placeholder="Enter your preferred location" autocomplete="off">
+                  </div>
+                  
+                  <div class="form-row">
+                      <div class="form-group">
+                          <label for="warehouseSize">Warehouse Size Needed</label>
+                          <select name="warehouse_size" id="warehouseSize" autocomplete="off">
+                              <option value="">Select size...</option>
+                              <option value="small">Small (Up to 100 sqm)</option>
+                              <option value="medium">Medium (100 - 500 sqm)</option>
+                              <option value="large">Large (500 - 1000 sqm)</option>
+                              <option value="xl">Extra Large (1000+ sqm)</option>
+                              <option value="custom">Custom Size</option>
+                          </select>
+                      </div>
+                      
+                      <div class="form-group" id="customSizeDiv" style="display: none;">
+                          <label for="customSize">Specify size (sqm)</label>
+                          <input type="text" id="customSize" name="custom_size" placeholder="e.g., 750 sqm" autocomplete="off">
+                      </div>
+                  </div>
+                  
+                  <div class="form-row">
+                      <div class="form-group">
+                          <label for="warehouseDuration">Duration Needed</label>
+                          <select name="warehouse_duration" id="warehouseDuration" autocomplete="off">
+                              <option value="">Select duration...</option>
+                              <option value="short">Short-term (1-3 months)</option>
+                              <option value="medium">Medium-term (3-6 months)</option>
+                              <option value="long">Long-term (6+ months)</option>
+                              <option value="flexible">Flexible / Not sure</option>
+                          </select>
+                      </div>
+                      
+                      <div class="form-group">
+                          <label for="storageType">Storage Type</label>
+                          <select name="storage_type" id="storageType" autocomplete="off">
+                              <option value="">Select type...</option>
+                              <option value="dry">Dry Storage (General goods)</option>
+                              <option value="cold">Cold Storage (Perishables)</option>
+                              <option value="hazardous">Hazardous Materials</option>
+                              <option value="valuable">High-Value / Secure Storage</option>
+                              <option value="mixed">Mixed / Not sure</option>
+                          </select>
+                      </div>
+                  </div>
+              </div>
+              
+              <!-- Dynamic Fields for Freight Transport -->
+              <div id="freightFields" style="display: none;">
+                  <div class="form-row">
+                      <div class="form-group">
+                          <label for="pickupLocation">Pickup Location</label>
+                          <input type="text" id="pickupLocation" name="pickup_location" placeholder="Where to pick up from?" autocomplete="off">
+                      </div>
+                      <div class="form-group">
+                          <label for="deliveryLocation">Delivery Location</label>
+                          <input type="text" id="deliveryLocation" name="delivery_location" placeholder="Where to deliver?" autocomplete="off">
+                      </div>
+                  </div>
+                  
+                  <div class="form-row">
+                      <div class="form-group">
+                          <label for="cargoType">Cargo Type</label>
+                          <select name="cargo_type" id="cargoType" autocomplete="off">
+                              <option value="">Select cargo type...</option>
+                              <option value="general">General Cargo</option>
+                              <option value="fragile">Fragile Items</option>
+                              <option value="perishable">Perishable Goods</option>
+                              <option value="hazardous">Hazardous Materials</option>
+                              <option value="vehicles">Vehicles / Machinery</option>
+                              <option value="other">Other</option>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                          <label for="estimatedWeight">Estimated Weight</label>
+                          <input type="text" id="estimatedWeight" name="weight" placeholder="e.g., 500 kg, 2 tonnes" autocomplete="off">
+                      </div>
+                  </div>
+              </div>
+              
+              <!-- Message Field (shown for all) -->
+              <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea name="message" id="message" rows="4" placeholder="Tell us what you need to move, where, and when…" autocomplete="off" required></textarea>
+              </div>
+              
+              <button type="submit" class="btn btn-primary form-submit" style="margin-top: auto;">
+                  Send Message
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              </button>
+          </form>
         </div>
 
         <!-- Map -->
@@ -259,10 +362,10 @@ include 'includes/navbar.php';
       </div>
 
     </div>
+    
     <script>
-    // This script runs immediately when the page loads
+    // Dynamic form fields script
     (function() {
-        // Wait for the DOM to be ready
         function initForm() {
             var subjectSelect = document.getElementById('subjectSelect');
             var warehouseFields = document.getElementById('warehouseFields');
@@ -272,32 +375,19 @@ include 'includes/navbar.php';
             var warehouseSize = document.getElementById('warehouseSize');
             var customSizeDiv = document.getElementById('customSizeDiv');
             
-            if (!subjectSelect) {
-                console.log('Subject select not found');
-                return;
-            }
+            if (!subjectSelect) return;
             
-            console.log('Form initialized - event listener attached');
-            
-            // THIS IS THE KEY - Add the event listener
             subjectSelect.addEventListener('change', function() {
-                console.log('Subject changed to:', this.value);
-                
-                // Hide both first
                 if (warehouseFields) warehouseFields.style.display = 'none';
                 if (freightFields) freightFields.style.display = 'none';
                 
-                // Show based on selection
                 if (this.value === 'warehouse' && warehouseFields) {
                     warehouseFields.style.display = 'block';
-                    console.log('Warehouse fields shown');
                 } else if (this.value === 'freight' && freightFields) {
                     freightFields.style.display = 'block';
-                    console.log('Freight fields shown');
                 }
             });
             
-            // Handle custom location
             if (warehouseLocation) {
                 warehouseLocation.addEventListener('change', function() {
                     if (customLocationDiv) {
@@ -306,7 +396,6 @@ include 'includes/navbar.php';
                 });
             }
             
-            // Handle custom size
             if (warehouseSize) {
                 warehouseSize.addEventListener('change', function() {
                     if (customSizeDiv) {
@@ -315,7 +404,6 @@ include 'includes/navbar.php';
                 });
             }
             
-            // Check if warehouse is already selected on page load
             if (subjectSelect.value === 'warehouse' && warehouseFields) {
                 warehouseFields.style.display = 'block';
             } else if (subjectSelect.value === 'freight' && freightFields) {
@@ -323,14 +411,13 @@ include 'includes/navbar.php';
             }
         }
         
-        // Run when page is ready
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initForm);
         } else {
             initForm();
         }
     })();
-</script>
+    </script>
   </div>
 </section>
 
