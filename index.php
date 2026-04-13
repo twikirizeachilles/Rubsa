@@ -6,7 +6,7 @@ include 'includes/navbar.php';
 ?>
 
 <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
-<section class="hero">
+<section class="hero" style="padding: 3%;">
   <div class="hero-bg-grid"></div>
   <div class="hero-orbs">
     <div class="orb orb-1"></div>
@@ -50,22 +50,32 @@ include 'includes/navbar.php';
       <div class="hero-carousel">
         <div class="carousel-slides" id="carouselTrack">
           <div class="carousel-slide">
-            <div class="carousel-slide-icon">🚛</div>
+            <div class="carousel-slide-icon">
+
+             <img src="assets/images/vechilestruck.png" alt="Freight Transport">
+
+            </div>
             <div class="carousel-slide-label">Freight Transport</div>
             <div class="carousel-slide-desc">Local & cross-border cargo across East Africa</div>
           </div>
           <div class="carousel-slide">
-            <div class="carousel-slide-icon">✈️</div>
+            <div class="carousel-slide-icon">
+              <img src="assets/images/air-freight.png" alt="Air Freight">
+            </div>
             <div class="carousel-slide-label">Air Freight</div>
             <div class="carousel-slide-desc">Fast airfreight coordination & handling</div>
           </div>
           <div class="carousel-slide">
-            <div class="carousel-slide-icon">🚢</div>
+            <div class="carousel-slide-icon">
+              <img src="assets/images/sea-freight.png" alt="Sea Freight">
+            </div>
             <div class="carousel-slide-label">Sea Freight</div>
             <div class="carousel-slide-desc">Reliable sea cargo & port clearance</div>
           </div>
           <div class="carousel-slide">
-            <div class="carousel-slide-icon">📦</div>
+            <div class="carousel-slide-icon">
+              <img src="assets/images/last-mile.png" alt="Last-Mile Delivery">
+            </div>
             <div class="carousel-slide-label">Last-Mile Delivery</div>
             <div class="carousel-slide-desc">Your goods, delivered to the final doorstep</div>
           </div>

@@ -135,3 +135,83 @@
 
 
 <!-- the working form that am trying to adjust to solve the console error -->
+
+<!-- this the beginning part of the home page  -->
+ 
+<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="container hero-content">
+    <div class="hero-grid">
+      <!-- Text -->
+      <div class="hero-text">
+        <span class="tag">🇺🇬 Uganda & East Africa</span>
+        <h1>Excellence in<br><em>Distribution</em></h1>
+        <p class="hero-tagline">Reliable, efficient and technology-driven freight solutions across Uganda and beyond — from pickup to final delivery.</p>
+        <div class="hero-btns">
+          <a href="contact.php#quote" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            Request a Quote
+          </a>
+          <a href="contact.php" class="btn btn-outline">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            Contact Us
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num"><span data-target="5" data-suffix="+">0+</span></div>
+            <div class="stat-label">Regions Covered</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num"><span data-target="100" data-suffix="%">0%</span></div>
+            <div class="stat-label">Commitment</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num"><span data-target="24" data-suffix="/7">0/7</span></div>
+            <div class="stat-label">Support</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel -->
+      <div class="hero-carousel">
+        <div class="carousel-slides" id="carouselTrack">
+          <div class="carousel-slide">
+            <div class="carousel-slide-icon">🚛</div>
+            <div class="carousel-slide-label">Freight Transport</div>
+            <div class="carousel-slide-desc">Local & cross-border cargo across East Africa</div>
+          </div>
+          <div class="carousel-slide">
+            <div class="carousel-slide-icon">✈️</div>
+            <div class="carousel-slide-label">Air Freight</div>
+            <div class="carousel-slide-desc">Fast airfreight coordination & handling</div>
+          </div>
+          <div class="carousel-slide">
+            <div class="carousel-slide-icon">🚢</div>
+            <div class="carousel-slide-label">Sea Freight</div>
+            <div class="carousel-slide-desc">Reliable sea cargo & port clearance</div>
+          </div>
+          <div class="carousel-slide">
+            <div class="carousel-slide-icon">📦</div>
+            <div class="carousel-slide-label">Last-Mile Delivery</div>
+            <div class="carousel-slide-desc">Your goods, delivered to the final doorstep</div>
+          </div>
+        </div>
+        <div class="carousel-overlay"></div>
+        <div class="carousel-dots">
+          <button class="carousel-dot active"></button>
+          <button class="carousel-dot"></button>
+          <button class="carousel-dot"></button>
+          <button class="carousel-dot"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ <!-- this is the hero section end  -->
