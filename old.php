@@ -132,3 +132,6 @@
 </section>
 
 <!-- the form ends here -->
+
+
+<!-- the working form that am trying to adjust to solve the console error -->

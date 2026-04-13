@@ -102,118 +102,118 @@ include 'includes/navbar.php';
           <p style="margin-bottom:28px;font-size:0.9rem;">Fill in the form below and our team will get back to you within a few hours.</p>
           
           <form action="#" method="POST" id="contactForm" style="flex: 1; display: flex; flex-direction: column;">
+    <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="name" placeholder="Your full name" autocomplete="name" required>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="tel" id="phoneNumber" name="phone" placeholder="0700 000 000" autocomplete="tel" required>
+        </div>
+        <div class="form-group">
+            <label for="emailAddress">Email Address</label>
+            <input type="email" id="emailAddress" name="email" placeholder="you@email.com" autocomplete="email">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="subjectSelect">Subject</label>
+        <select name="subject" id="subjectSelect" autocomplete="off">
+            <option value="">Select a subject…</option>
+            <option value="quote">Request a Quote</option>
+            <option value="freight">Freight Transport Inquiry</option>
+            <option value="warehouse">Warehousing Inquiry</option>
+            <option value="distribution">Distribution Inquiry</option>
+            <option value="partnership">Partnership / General</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+    
+    <!-- Dynamic Fields for Warehousing -->
+    <div id="warehouseFields" style="display: none;">
+        <div class="form-group">
+            <label for="warehouseLocation">Preferred Warehouse Location</label>
+            <select name="warehouse_location" id="warehouseLocation" autocomplete="off">
+                <option value="">Select location...</option>
+                <option value="kampala">Kampala Central</option>
+                <option value="nansana">Nansana</option>
+                <option value="kireka">Kireka</option>
+                <option value="mukono">Mukono</option>
+                <option value="entebbe">Entebbe</option>
+                <option value="jinja">Jinja</option>
+                <option value="other">Other (Please specify)</option>
+            </select>
+        </div>
+        
+        <div class="form-group" id="customLocationDiv" style="display: none;">
+            <label for="customLocation">Please specify location</label>
+            <input type="text" id="customLocation" name="custom_location" placeholder="Enter your preferred location" autocomplete="off">
+        </div>
+        
+        <div class="form-row">
             <div class="form-group">
-              <label>Full Name</label>
-              <input type="text" name="name" placeholder="Your full name" required>
-            </div>
-            
-            <div class="form-row">
-              <div class="form-group">
-                <label>Phone Number</label>
-                <input type="tel" name="phone" placeholder="0700 000 000" required>
-              </div>
-              <div class="form-group">
-                <label>Email Address</label>
-                <input type="email" name="email" placeholder="you@email.com">
-              </div>
-            </div>
-            
-            <div class="form-group">
-              <label>Subject</label>
-              <select name="subject" id="subjectSelect">
-                <option value="">Select a subject…</option>
-                <option value="quote">Request a Quote</option>
-                <option value="freight">Freight Transport Inquiry</option>
-                <option value="warehouse">Warehousing Inquiry</option>
-                <option value="distribution">Distribution Inquiry</option>
-                <option value="partnership">Partnership / General</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            
-            <!-- Dynamic Fields for Warehousing -->
-            <div id="warehouseFields" style="display: none;">
-              <div class="form-group">
-                <label>Preferred Warehouse Location</label>
-                <select name="warehouse_location" id="warehouseLocation">
-                  <option value="">Select location...</option>
-                  <option value="kampala">Kampala Central</option>
-                  <option value="nansana">Nansana</option>
-                  <option value="kireka">Kireka</option>
-                  <option value="mukono">Mukono</option>
-                  <option value="entebbe">Entebbe</option>
-                  <option value="jinja">Jinja</option>
-                  <option value="other">Other (Please specify)</option>
-                </select>
-              </div>
-              
-              <div class="form-group" id="customLocationDiv" style="display: none;">
-                <label>Please specify location</label>
-                <input type="text" name="custom_location" placeholder="Enter your preferred location">
-              </div>
-              
-              <div class="form-row">
-                <div class="form-group">
-                  <label>Warehouse Size Needed</label>
-                  <select name="warehouse_size" id="warehouseSize">
+                <label for="warehouseSize">Warehouse Size Needed</label>
+                <select name="warehouse_size" id="warehouseSize" autocomplete="off">
                     <option value="">Select size...</option>
                     <option value="small">Small (Up to 100 sqm)</option>
                     <option value="medium">Medium (100 - 500 sqm)</option>
                     <option value="large">Large (500 - 1000 sqm)</option>
                     <option value="xl">Extra Large (1000+ sqm)</option>
                     <option value="custom">Custom Size</option>
-                  </select>
-                </div>
-                
-                <div class="form-group" id="customSizeDiv" style="display: none;">
-                  <label>Specify size (sqm)</label>
-                  <input type="text" name="custom_size" placeholder="e.g., 750 sqm">
-                </div>
-              </div>
-              
-              <div class="form-row">
-                <div class="form-group">
-                  <label>Duration Needed</label>
-                  <select name="warehouse_duration">
+                </select>
+            </div>
+            
+            <div class="form-group" id="customSizeDiv" style="display: none;">
+                <label for="customSize">Specify size (sqm)</label>
+                <input type="text" id="customSize" name="custom_size" placeholder="e.g., 750 sqm" autocomplete="off">
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label for="warehouseDuration">Duration Needed</label>
+                <select name="warehouse_duration" id="warehouseDuration" autocomplete="off">
                     <option value="">Select duration...</option>
                     <option value="short">Short-term (1-3 months)</option>
                     <option value="medium">Medium-term (3-6 months)</option>
                     <option value="long">Long-term (6+ months)</option>
                     <option value="flexible">Flexible / Not sure</option>
-                  </select>
-                </div>
-                
-                <div class="form-group">
-                  <label>Storage Type</label>
-                  <select name="storage_type">
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="storageType">Storage Type</label>
+                <select name="storage_type" id="storageType" autocomplete="off">
                     <option value="">Select type...</option>
                     <option value="dry">Dry Storage (General goods)</option>
                     <option value="cold">Cold Storage (Perishables)</option>
                     <option value="hazardous">Hazardous Materials</option>
                     <option value="valuable">High-Value / Secure Storage</option>
                     <option value="mixed">Mixed / Not sure</option>
-                  </select>
-                </div>
-              </div>
+                </select>
             </div>
-            
-            <!-- Dynamic Fields for Freight Transport -->
-            <div id="freightFields" style="display: none;">
-              <div class="form-row">
-                <div class="form-group">
-                  <label>Pickup Location</label>
-                  <input type="text" name="pickup_location" placeholder="Where to pick up from?">
-                </div>
-                <div class="form-group">
-                  <label>Delivery Location</label>
-                  <input type="text" name="delivery_location" placeholder="Where to deliver?">
-                </div>
-              </div>
-              
-              <div class="form-row">
-                <div class="form-group">
-                  <label>Cargo Type</label>
-                  <select name="cargo_type">
+        </div>
+    </div>
+    
+    <!-- Dynamic Fields for Freight Transport -->
+    <div id="freightFields" style="display: none;">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="pickupLocation">Pickup Location</label>
+                <input type="text" id="pickupLocation" name="pickup_location" placeholder="Where to pick up from?" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="deliveryLocation">Delivery Location</label>
+                <input type="text" id="deliveryLocation" name="delivery_location" placeholder="Where to deliver?" autocomplete="off">
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label for="cargoType">Cargo Type</label>
+                <select name="cargo_type" id="cargoType" autocomplete="off">
                     <option value="">Select cargo type...</option>
                     <option value="general">General Cargo</option>
                     <option value="fragile">Fragile Items</option>
@@ -221,26 +221,28 @@ include 'includes/navbar.php';
                     <option value="hazardous">Hazardous Materials</option>
                     <option value="vehicles">Vehicles / Machinery</option>
                     <option value="other">Other</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label>Estimated Weight</label>
-                  <input type="text" name="weight" placeholder="e.g., 500 kg, 2 tonnes">
-                </div>
-              </div>
+                </select>
             </div>
-            
-            <!-- Message Field (shown for all) -->
             <div class="form-group">
-              <label>Message</label>
-              <textarea name="message" id="message" rows="4" placeholder="Tell us what you need to move, where, and when…" required></textarea>
+                <label for="estimatedWeight">Estimated Weight</label>
+                <input type="text" id="estimatedWeight" name="weight" placeholder="e.g., 500 kg, 2 tonnes" autocomplete="off">
             </div>
-            
-            <button type="submit" class="btn btn-primary form-submit" style="margin-top: auto;">
-              Send Message
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-            </button>
-          </form>
+        </div>
+    </div>
+    
+    <!-- Message Field (shown for all) -->
+    <div class="form-group">
+        <label for="message">Message</label>
+        <textarea name="message" id="message" rows="4" placeholder="Tell us what you need to move, where, and when…" autocomplete="off" required></textarea>
+    </div>
+    
+    <button type="submit" class="btn btn-primary form-submit" style="margin-top: auto;">
+        Send Message
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+    </button>
+</form>
+          
+
         </div>
 
         <!-- Map -->
