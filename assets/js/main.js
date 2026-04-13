@@ -140,4 +140,28 @@ const countObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 document.querySelectorAll('.hero-stats, .about-visual').forEach(el => countObserver.observe(el));
 
-
+// Contact Form Dynamic Fields - FIXED VERSION
+document.addEventListener('DOMContentLoaded', function() {
+    var subjectSelect = document.getElementById('subjectSelect');
+    
+    if (subjectSelect) {
+        // Remove any existing listeners to avoid duplicates
+        var newSelect = subjectSelect.cloneNode(true);
+        subjectSelect.parentNode.replaceChild(newSelect, subjectSelect);
+        subjectSelect = newSelect;
+        
+        subjectSelect.addEventListener('change', function(e) {
+            var warehouseFields = document.getElementById('warehouseFields');
+            var freightFields = document.getElementById('freightFields');
+            
+            if (warehouseFields) warehouseFields.style.display = 'none';
+            if (freightFields) freightFields.style.display = 'none';
+            
+            if (this.value === 'warehouse' && warehouseFields) {
+                warehouseFields.style.display = 'block';
+            } else if (this.value === 'freight' && freightFields) {
+                freightFields.style.display = 'block';
+            }
+        });
+    }
+});

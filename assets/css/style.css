@@ -682,3 +682,57 @@ footer {
 .toast.show { transform: translateY(0); opacity: 1; }
 .toast.success { border-left-color: #25d366; }
 
+/* Contact page alignment fixes */
+.contact-grid {
+    align-items: stretch; /* Makes both columns stretch to same height */
+}
+
+.contact-form-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form-card form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-submit {
+    margin-top: auto; /* Pushes button to bottom */
+}
+
+/* Make both columns equal height on desktop */
+@media (min-width: 1025px) {
+    .contact-info,
+    .fade-up {
+        height: 100%;
+    }
+    
+    .contact-form-card {
+        min-height: 600px;
+    }
+}
+
+/* Adjust for tablet */
+@media (max-width: 1024px) {
+    .contact-grid {
+        gap: 40px;
+    }
+    
+    .contact-form-card {
+        min-height: auto;
+    }
+}
+
+/* Adjust for mobile */
+@media (max-width: 768px) {
+    .contact-grid {
+        gap: 30px;
+    }
+    
+    .contact-form-card {
+        padding: 30px 24px;
+    }
+}
