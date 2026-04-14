@@ -60,16 +60,16 @@ include 'includes/navbar.php';
       <span class="tag">Direction</span>
       <h2>Our Vision & <span class="gradient-text">Mission</span></h2>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;" class="fade-up">
-      <div style="background:linear-gradient(135deg,var(--navy),var(--navy-mid));border-radius:20px;padding:48px 40px;">
-        <div style="font-size:2.5rem;margin-bottom:16px;">🔭</div>
-        <h3 style="color:var(--cornflower);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px;">Our Vision</h3>
-        <p style="color:white;font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:600;line-height:1.5;margin-bottom:16px;">To become a leading logistics and distribution provider recognized for innovation, reliability, and exceptional service across Africa and beyond.</p>
+    <div class="vision-mission-grid fade-up">
+      <div class="vision-card">
+        <div class="vision-icon">🔭</div>
+        <h3 class="vision-title">Our Vision</h3>
+        <p class="vision-text">To become a leading logistics and distribution provider recognized for innovation, reliability, and exceptional service across Africa and beyond.</p>
       </div>
-      <div style="background:linear-gradient(135deg,var(--royal),#3d7de0);border-radius:20px;padding:48px 40px;">
-        <div style="font-size:2.5rem;margin-bottom:16px;">🎯</div>
-        <h3 style="color:rgba(255,255,255,0.7);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px;">Our Mission</h3>
-        <p style="color:white;font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:600;line-height:1.6;margin-bottom:16px;">To deliver high-performance freight and distribution solutions through modern technology, skilled personnel, and a commitment to continuous improvement — helping our clients operate more efficiently and grow sustainably.</p>
+      <div class="mission-card">
+        <div class="mission-icon">🎯</div>
+        <h3 class="mission-title">Our Mission</h3>
+        <p class="mission-text">To deliver high-performance freight and distribution solutions through modern technology, skilled personnel, and a commitment to continuous improvement — helping our clients operate more efficiently and grow sustainably.</p>
       </div>
     </div>
   </div>
