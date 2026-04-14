@@ -1970,3 +1970,128 @@ footer {
     font-size: 0.6rem;
   }
 }
+
+
+/* ========================================
+   QUICK CONTACT STRIP - RESPONSIVE FIX
+   ======================================== */
+
+.quick-contact-strip {
+  background: var(--navy);
+  padding: 50px 0;
+}
+
+/* Target the grid container */
+.quick-contact-strip .container > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+
+/* Style each contact item */
+.quick-contact-strip .container > div > div {
+  padding: 10px;
+}
+
+/* Style the icons */
+.quick-contact-strip .container > div > div > div {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* Style the headings */
+.quick-contact-strip .container > div > div h4 {
+  color: white;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* Style the links */
+.quick-contact-strip .container > div > div a {
+  color: var(--cornflower);
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.quick-contact-strip .container > div > div a:hover {
+  color: white;
+}
+
+/* Tablet (768px - 991px) */
+@media (max-width: 991px) {
+  .quick-contact-strip {
+    padding: 40px 0;
+  }
+  
+  .quick-contact-strip .container > div {
+    gap: 20px;
+  }
+  
+  .quick-contact-strip .container > div > div > div {
+    font-size: 1.8rem;
+  }
+  
+  .quick-contact-strip .container > div > div h4 {
+    font-size: 0.85rem;
+  }
+  
+  .quick-contact-strip .container > div > div a {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile (768px and below) - Stack vertically */
+@media (max-width: 768px) {
+  .quick-contact-strip {
+    padding: 35px 0;
+  }
+  
+  .quick-contact-strip .container > div {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  
+  .quick-contact-strip .container > div > div > div {
+    font-size: 2rem;
+  }
+  
+  .quick-contact-strip .container > div > div h4 {
+    font-size: 0.9rem;
+  }
+  
+  .quick-contact-strip .container > div > div a {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  .quick-contact-strip {
+    padding: 30px 0;
+  }
+  
+  .quick-contact-strip .container > div {
+    gap: 20px;
+    max-width: 260px;
+  }
+  
+  .quick-contact-strip .container > div > div > div {
+    font-size: 1.8rem;
+  }
+  
+  .quick-contact-strip .container > div > div h4 {
+    font-size: 0.85rem;
+  }
+  
+  .quick-contact-strip .container > div > div a {
+    font-size: 0.85rem;
+  }
+}

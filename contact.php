@@ -422,23 +422,23 @@ include 'includes/navbar.php';
 </section>
 
 <!-- QUICK CONTACT STRIP -->
-<div style="background:var(--navy);padding:50px 0;">
+<div class="quick-contact-strip">
   <div class="container">
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center;">
+    <div>
       <div>
-        <div style="font-size:2rem;margin-bottom:10px;">📞</div>
-        <h4 style="color:white;margin-bottom:6px;">Call Us Directly</h4>
-        <a href="tel:+256741046323" style="color:var(--cornflower);font-size:1.1rem;font-weight:600;">0741 046 323</a>
+        <div>📞</div>
+        <h4>Call Us Directly</h4>
+        <a href="tel:+256741046323">0741 046 323</a>
       </div>
       <div>
-        <div style="font-size:2rem;margin-bottom:10px;">💬</div>
-        <h4 style="color:white;margin-bottom:6px;">WhatsApp</h4>
-        <a href="https://wa.me/256741046323" target="_blank" style="color:#25d366;font-size:1.1rem;font-weight:600;">Send a Message →</a>
+        <div>💬</div>
+        <h4>WhatsApp</h4>
+        <a href="https://wa.me/256741046323" target="_blank">Send a Message →</a>
       </div>
       <div>
-        <div style="font-size:2rem;margin-bottom:10px;">✉️</div>
-        <h4 style="color:white;margin-bottom:6px;">Email Sales</h4>
-        <a href="mailto:sales@rubasafreight.com" style="color:var(--cornflower);font-size:0.95rem;font-weight:500;">sales@rubasafreight.com</a>
+        <div>✉️</div>
+        <h4>Email Sales</h4>
+        <a href="mailto:sales@rubasafreight.com">sales@rubasafreight.com</a>
       </div>
     </div>
   </div>
