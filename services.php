@@ -45,6 +45,9 @@ include 'includes/navbar.php';
         <a href="contact.php#quote" class="btn btn-primary">Request a Quote</a>
       </div>
       <div class="svc-visual fade-up">
+        <div class="svc-visual-image">
+          <img src="assets/images/freight2.png" alt="Freight Transport Services">
+        </div>
         <div class="svc-visual-content">
           <div class="svc-visual-icon">🚛</div>
           <div class="svc-visual-label">Freight Transport</div>
@@ -54,6 +57,7 @@ include 'includes/navbar.php';
     </div>
   </div>
 </section>
+
 
 <!-- SERVICE 2 — WAREHOUSING -->
 <section class="full-service">
@@ -75,6 +79,9 @@ include 'includes/navbar.php';
         <a href="contact.php#quote" class="btn btn-primary">Request a Quote</a>
       </div>
       <div class="svc-visual fade-up">
+        <div class="svc-visual-image">
+          <img src="assets/images/warehouse.png" alt="Warehousing Services">
+        </div>
         <div class="svc-visual-content">
           <div class="svc-visual-icon">🏭</div>
           <div class="svc-visual-label">Warehousing & Storage</div>
@@ -84,6 +91,8 @@ include 'includes/navbar.php';
     </div>
   </div>
 </section>
+
+
 
 <!-- SERVICE 3 — DISTRIBUTION -->
 <section class="full-service">
@@ -105,6 +114,9 @@ include 'includes/navbar.php';
         <a href="contact.php#quote" class="btn btn-primary">Request a Quote</a>
       </div>
       <div class="svc-visual fade-up">
+        <div class="svc-visual-image">
+          <img src="assets/images/deliveryservice.png" alt="Distribution Services">
+        </div>
         <div class="svc-visual-content">
           <div class="svc-visual-icon">📦</div>
           <div class="svc-visual-label">Distribution Services</div>
@@ -114,6 +126,7 @@ include 'includes/navbar.php';
     </div>
   </div>
 </section>
+
 
 <!-- SERVICE 4 — SUPPLY CHAIN -->
 <section class="full-service">
@@ -135,6 +148,9 @@ include 'includes/navbar.php';
         <a href="contact.php#quote" class="btn btn-primary">Request a Quote</a>
       </div>
       <div class="svc-visual fade-up">
+        <div class="svc-visual-image">
+          <img src="assets/images/supplychain.png" alt="Supply Chain Management">
+        </div>
         <div class="svc-visual-content">
           <div class="svc-visual-icon">🔗</div>
           <div class="svc-visual-label">Supply Chain Management</div>
@@ -144,6 +160,7 @@ include 'includes/navbar.php';
     </div>
   </div>
 </section>
+
 
 <!-- SERVICE 5 — CUSTOMS -->
 <section class="full-service">
@@ -165,6 +182,9 @@ include 'includes/navbar.php';
         <a href="contact.php#quote" class="btn btn-primary">Request a Quote</a>
       </div>
       <div class="svc-visual fade-up">
+        <div class="svc-visual-image">
+          <img src="assets/images/customsclearance.png" alt="Customs Clearance">
+        </div>
         <div class="svc-visual-content">
           <div class="svc-visual-icon">🌍</div>
           <div class="svc-visual-label">Customs Clearance</div>
@@ -174,6 +194,7 @@ include 'includes/navbar.php';
     </div>
   </div>
 </section>
+
 
 <!-- CTA -->
 <section class="cta-banner">
