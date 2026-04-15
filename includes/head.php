@@ -11,7 +11,7 @@ $desc  = isset($page_desc) ? $page_desc : $default_desc;
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="<?= htmlspecialchars($desc) ?>">
-  <meta name="keywords" content="freight services Uganda, logistics Uganda, cargo transport Uganda, warehousing Uganda, distribution Uganda, Rubasa freight, cross-border logistics East Africa">
+  <meta name="keywords" content="freight services Uganda, cement distributors ,logistics Uganda, cargo transport Uganda, warehousing Uganda, distribution Uganda,Haulage, Rubasa freight, cross-border logistics East Africa">
   <meta name="author" content="Rubasa Freight Services Ltd">
   <meta name="robots" content="index, follow">
 

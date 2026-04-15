@@ -179,10 +179,10 @@ include 'includes/navbar.php';
         <div>
           <h4 style="font-family:'Syne',sans-serif;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-light);margin-bottom:14px;">Follow Us</h4>
           <div style="display:flex;gap:12px;flex-wrap:wrap;">
-            <a href="https://facebook.com" target="_blank" class="btn btn-primary" style="padding:10px 18px;font-size:0.82rem;">Facebook</a>
-            <a href="https://linkedin.com" target="_blank" class="btn btn-primary" style="padding:10px 18px;font-size:0.82rem;">LinkedIn</a>
+            <a href="https://www.facebook.com/makunegadgetsug" target="_blank" class="btn btn-primary" style="padding:10px 18px;font-size:0.82rem;">Facebook</a>
+            <a href="https://www.linkedin.com/company/rubasa-freight-services-ltd/" target="_blank" class="btn btn-primary" style="padding:10px 18px;font-size:0.82rem;">LinkedIn</a>
             <a href="https://tiktok.com" target="_blank" class="btn btn-primary" style="padding:10px 18px;font-size:0.82rem;">TikTok</a>
-            <a href="https://twitter.com" target="_blank" class="btn btn-primary" style="padding:10px 18px;font-size:0.82rem;">Twitter</a>
+            <a href="https://twitter.com" target="_blank" class="btn btn-primary" style="padding:10px 18px;font-size:0.82rem;">X</a>
           </div>
         </div>
       </div>
@@ -350,16 +350,16 @@ include 'includes/navbar.php';
 
         <!-- Map -->
         <div class="map-placeholder" style="height:250px;border-radius:16px;overflow:hidden;margin-top:24px;">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7945688187237!2d32.529723673577664!3d0.19770016419847466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177d990013c7ff81%3A0xfa615edb44fdfaab!2sSt.Mary's%20Stadium%20Kitende!5e0!3m2!1sen!2sug!4v1775911788682!5m2!1sen!2sug" 
-            width="100%" 
-            height="250" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy">
-          </iframe>
-        </div>
-      </div>
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.794933757922!2d32.52762777357747!3d0.19617546420050402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177d991818f0cd33%3A0x24d4303157e831ff!2sRubasa%20Freight%20Services%20Limited!5e0!3m2!1sen!2sug!4v1776244266706!5m2!1sen!2sug" 
+    width="100%" 
+    height="250" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
 
     </div>
     
